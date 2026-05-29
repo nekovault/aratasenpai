@@ -1,0 +1,1299 @@
+:root {
+  --sky: #00bfff;
+  --bg: #000;
+}
+
+/* ===== BODY ===== */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  padding-bottom: 80px;
+
+  background: url("img/bg.jpg");
+  background-size: 110%;
+  background-position: center 0%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* BACKGROUND FIX (TIDAK GESER) */
+.bg-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background: url("img/bg.jpg");
+  background-size: 110%;
+  background-position: center 50%;
+  background-repeat: no-repeat;
+
+  z-index: -1;
+}
+
+/* overlay gelap */
+.bg-fixed::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.65); /* lebih gelap */
+}
+
+/* semua konten di atas overlay */
+.header,
+.top-menu,
+.content,
+.bottom-menu {
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== HEADER ===== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 15px;
+
+  background: rgba(0,0,0,0.7); /* semi transparan */
+  border-bottom: 1px solid var(--sky);
+
+  position: sticky;
+  top: 0;
+}
+
+/* TITLE */
+.title {
+
+  font-family: 'Bebas Neue', sans-serif;
+
+  font-size: 22px;
+
+  font-weight: 900;
+
+  color: white;
+
+  text-shadow:
+    0 0 10px rgba(0,191,255,0.8),
+    0 0 20px rgba(0,191,255,0.5);
+}
+
+/* ICON */
+.menu-icon img,
+.search-icon img {
+  width: 25px;
+  height: 25px;
+  padding: 8px;
+
+  border: 2px solid var(--sky);
+  border-radius: 10px;
+  
+  filter: brightness(0) saturate(100%) invert(60%) sepia(100%) saturate(500%) hue-rotate(160deg);
+  
+  transition: 0.5s;
+}
+
+.menu-icon:hover {
+
+  background: #00bfff;
+
+  color: black;
+
+  box-shadow:
+    0 0 15px rgba(0,191,255,0.9);
+}
+
+/* ===== MENU ATAS ===== */
+.top-menu {
+  display: flex;
+  border-bottom: 1px solid var(--sky);
+  background: rgba(0,0,0,0.5);
+}
+
+.top-menu button {
+  flex: 1;
+  background: none;
+  border: none;
+  color: var(--sky);
+  padding: 10px;
+  font-size: 14px;
+}
+
+.menu-kategori {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+.kategori {
+  color: #00bfff;
+  text-decoration: none;
+  font-size: 14px;
+
+  padding: 8px 15px;
+  border: 1px solid transparent;
+  border-radius: 20px;
+
+  transition: 0.3s;
+}
+
+/* saat disentuh / diklik */
+.kategori:active {
+  border: 1px solid #00bfff;
+  background: rgba(0,191,255,0.1);
+}
+
+/* yang sedang aktif */
+.kategori.active {
+  border: 1px solid #00bfff;
+  background: rgba(0,191,255,0.15);
+}
+
+.top-menu button.active {
+  border-bottom: 2px solid var(--sky);
+}
+
+/* ===== KONTEN ===== */
+.content {
+  padding: 16px;
+  color: white;
+  
+  position: relative;
+  z-index: 1;
+}
+
+.game-title { 
+  position: absolute;
+
+  bottom: 20px;
+
+  width: 100%;
+
+  text-align: center;
+  font-size: 11px;
+  
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  
+  z-index: 2;
+}
+  
+/* ===== MENU BAWAH ===== */
+.bottom-menu {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+
+  background: rgba(0,0,0,0.8);
+  border-top: 1px solid var(--sky);
+
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+}
+
+.bottom-menu a.active {
+  color: #00bfff;
+  color: white;
+  text-decoration: none;
+  font-size: 12px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bottom-menu img {
+  width: 24px;
+  height: 24px;
+  object-fit: cover; /* crop biar penuh */
+}
+
+/* SEMUA MENU */
+.bottom-menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 12px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* BIAR GAK JADI UNGU */
+.bottom-menu a:visited {
+  color: white;
+}
+
+/* SAAT DIKLIK */
+.bottom-menu a:active {
+  color: #00bfff;
+}
+
+/* MENU YANG AKTIF */
+.bottom-menu a.active {
+  color: #00bfff;
+}
+
+.bottom-menu a:hover {
+  color: #00bfff;
+}
+
+/* ===== BOX DONASI ===== */
+.donasi-box {
+  width: 80%;
+  max-width: 500px;
+
+  margin: 100px auto;
+
+  padding: 25px;
+
+  background: rgba(0,0,0,0.85);
+
+  border: 2px solid #00bfff;
+  border-radius: 20px;
+
+  text-align: center;
+  color: white;
+
+  box-shadow: 0 0 15px rgba(0,191,255,0.3);
+}
+
+/* ===== JUDUL ===== */
+.donasi-title {
+  color: #00bfff;
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+/* ===== TEXT ===== */
+.donasi-text {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* ===== TOMBOL TRAKTIR ===== */
+.donasi-btn {
+  display: inline-block;
+
+  width: 80%;
+  padding: 12px;
+
+  background: #00bfff;
+  color: white;
+
+  font-weight: bold;
+  text-decoration: none;
+
+  border-radius: 12px;
+  border: 2px solid #00bfff;
+
+  transition: 0.3s;
+}
+
+/* efek klik */
+.donasi-btn:hover {
+  background: transparent;
+  color: #00bfff;
+}
+
+/* ===== CONTAINER TENGAH ===== */
+.center-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  min-height: calc(100vh - 120px); /* biar pas tengah layar */
+  padding: 20px;
+}
+
+/* ===== BOX UTAMA ===== */
+.box-content {
+  width: 80%;
+  max-width: 350px;
+
+  background: rgba(0,0,0,0.9);
+  border: 2px solid #00bfff;
+  border-radius: 15px;
+
+  padding: 25px 20px;
+  text-align: center;
+
+  box-shadow: 0 0 15px rgba(0,191,255,0.3);
+}
+
+/* ===== JUDUL ===== */
+.box-title {
+  color: #00bfff;
+  margin-bottom: 15px;
+}
+
+/* ===== ISI TEXT ===== */
+.box-text {
+  color: #ccc;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+/* ===== TOMBOL ===== */
+.btn-main {
+  display: inline-block;
+  background: #00bfff;
+  color: white;
+
+  padding: 12px 20px;
+  border-radius: 10px;
+
+  text-decoration: none;
+  font-weight: bold;
+
+  margin-bottom: 15px;
+}
+
+/* ===== FOOTER TEXT ===== */
+.box-footer {
+  color: #aaa;
+  font-size: 12px;
+}
+
+.nav-item {
+  text-decoration: none;
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 12px;
+}
+
+/* ICON */
+.nav-item img {
+  width: 24px;
+  height: 24px;
+
+  padding: 6px;
+  border-radius: 50%;
+
+  transition: 0.5s;
+}
+
+/* AKTIF (lingkaran biru) */
+.nav-item.active img {
+  background: #00bfff;
+}
+
+/* warna teks aktif */
+.nav-item.active span {
+  color: #00bfff;
+}
+
+.menu-kategori {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+.game-card {
+  display: block;
+  width: 100%;
+
+  text-decoration: none;
+  color: white;
+
+  overflow: hidden;
+  border-radius: 14px;
+  
+  position: relative;
+  z-index: 2;
+  
+  border: 1px solid #00bfff;
+
+  box-shadow:
+    0 0 10px rgba(0,191,255,0.5);
+}
+
+.game-card::after {
+
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: 55%;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(0,0,0,0.99),
+      rgba(0,0,0,0)
+    );
+
+  z-index: 1;
+}
+
+/* LABEL INDONESIA */
+.indo-label {
+
+  position: absolute;
+
+  top: 8px;
+  left: 6px;
+
+  background: #00bfff;
+
+  color: white;
+
+  font-size: 8px;
+  font-weight: bold;
+
+  padding: 2px 2px;
+
+  border-radius: 20px;
+
+  z-index: 999;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 0 1px rgba(0,191,255,0.9);
+
+  backdrop-filter: blur(5px);
+}
+
+.indo-label::before {
+
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -120%;
+
+  width: 40%;
+  height: 100%;
+
+  background:
+    rgba(255,255,255,0.5);
+
+  transform: skewX(-20deg);
+
+  animation:
+    indoShine 2s infinite;
+}
+
+/* ANIMASI */
+@keyframes indoShine {
+
+  100%{
+    left: 150%;
+  }
+
+}
+
+/* LABEL NEW */
+.new-badge {
+
+  position: absolute;
+
+  top: 8px;
+  right: 6px;
+
+  background: linear-gradient(
+    135deg,
+    #ffd700,
+    #ffae00
+  );
+
+  color: black;
+
+  font-size: 8px;
+  font-weight: bold;
+
+  padding: 2px 6px;
+
+  border-radius: 20px;
+
+  z-index: 5;
+  overflow: hidden;
+  
+  box-shadow:
+    0 0 1px rgba(255,0,0,0.7);
+}
+
+.new-badge::before {
+
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -120%;
+
+  width: 40%;
+  height: 100%;
+
+  background:
+    rgba(255,255,255,0.5);
+
+  transform: skewX(-20deg);
+
+  animation:
+    newShine 2s infinite;
+}
+
+/* ANIMASI */
+@keyframes newShine {
+
+  100%{
+    left: 150%;
+  }
+
+}
+
+.game-card img {
+  width: 100%;
+  
+  object-fit: cover;
+  border-radius: 14px;
+  
+  display: block;
+}
+
+.platform {
+
+  position: absolute;
+
+  bottom: 10px;
+
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+
+  z-index: 2;
+}
+
+.platform span {
+  font-size: 9px;
+  color: #00bfff;
+
+  border: 1px solid rgba(0,191,255,0.6);
+  border-radius: 10px;
+
+  padding: 2px 5px;
+}
+
+/* ===== DETAIL PAGE ===== */
+.detail-container {
+  padding: 10px;
+  padding-top: 1px;
+  color: white;
+  text-align: center;
+  
+  width: 100%;
+  max-width: 100%;
+  margin: auto;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* JUDUL */
+.detail-title {
+  font-family: 'Bebas Neue', sans-serif;
+  
+  font-size: 50px;
+  font-weight: bold;
+  font-style: italic;
+  letter-spacing: 1px;
+  
+  margin: 0;
+  position: relative;
+  top: 10px;
+  left: -150px;
+  
+  color: white;
+  text-shadow:
+  0 2px 5px rgba(0,0,0,0.8),
+  0 0 10px rgba(0,191,255,0.7),
+  0 0 25px rgba(0,191,255,0.5);
+}
+
+/* GAMBAR */
+.detail-img{
+  width: 250px;
+  border-radius: 20px;
+  border: 3px solid #00bfff;
+
+  position: relative;
+  top: 130px;
+
+  float: left;
+  margin-right: 15px;
+  
+  box-shadow:
+   0 0 10px rgba(0,191,255,0.6),
+   0 0 20px rgba(0,191,255,0.4);
+}
+/* AREA TOMBOL */
+.detail-buttons {
+
+  display: flex;
+
+  gap: 10px;
+
+  margin-top: 15px;
+
+  flex-wrap: wrap;
+}
+
+/* RENPY */
+.game-engine {
+  display: flex;
+  min-width: 110px;
+
+  height: 70px;
+  justify-content: center;
+
+  align-items: center;
+
+  padding: 10px 18px;
+  position: relative;
+  left: 430px;
+  top: 25px;
+  
+  border: 3px solid #00bfff;
+  border-radius: 20px;
+  background: black;
+  color: white;
+  font-size: 35px;
+  
+  box-shadow:
+    0 0 10px rgba(0,191,255,0.5);
+
+  font-weight: bold;
+
+  letter-spacing: -1px;
+}
+
+/* DOWNLOAD */
+.download-btn {
+  background:
+  linear-gradient(
+    135deg,
+    #00bfff,
+    #0077ff
+  );
+
+  box-shadow:
+  0 0 10px #00bfff,
+  0 0 10px #6a5acd,
+  0 0 10px rgba(106,90,205,0.7);
+  
+  color: white;
+  
+  padding: 10px 20px;
+  border-radius: 10px;
+  
+  text-decoration: none;
+  font-weight: bold;
+  
+  transform: scale(2.3);
+  margin-top: 50px;
+  
+  position: relative;
+  left: 1px;
+  
+  align-self: flex-start;
+  overflow: hidden;
+  display: inline-block;
+}
+
+/* EFEK KILAP PREMIUM */
+.download-btn::before {
+
+  content: "";
+
+  position: absolute;
+
+  top: -50%;
+  left: -130%;
+
+  width: 25%;
+  height: 220%;
+
+  background:
+    linear-gradient(
+      to right,
+      rgba(255,255,255,0),
+      rgba(255,255,255,0.55),
+      rgba(255,255,255,0)
+    );
+
+  transform: rotate(25deg);
+
+  filter: blur(2px);
+
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+
+  100% {
+
+    left: 160%;
+  }
+}
+
+/* BOX BESAR INFO + GENRE */
+.info-box {
+  width: 95%;
+  margin: 15px auto;
+  padding: 20px;
+  display: flex;
+
+  gap: 20px;
+  padding-bottom: 70px;
+  
+  align-items: flex-start;
+
+  border: 2px solid #00bfff;
+  border-radius: 12px;
+  background: rgba(0,0,0,0.4);
+  
+  box-shadow:
+   0 0 10px rgba(0,191,255,0.6),
+   0 0 20px rgba(0,191,255,0.4);
+}
+
+.detail-info {
+
+  margin-top: 70px;
+}
+
+.detail-info p {
+  margin: 2px 3px;
+  position: relative;
+  top: -10px;
+  left: -15px;
+  font-size: 35px;
+
+  text-align: left;
+  white-space: nowrap;
+  color: white;
+  display: flex;
+
+  margin: 6px 0;
+}
+
+.label{
+
+  width: 170px;
+
+  font-weight: bold;
+}
+
+.value{
+  margin-left: 65px;
+  flex: 1;
+}
+
+.info-right {
+  display: flex;
+  flex-direction: column;
+  
+  flex: 1;
+}
+
+/* GENRE (INI YANG KAMU MAU 🔥) */
+.genre {
+  display: flex;
+  position: relative;
+  top: 10px;
+  gap: 8px;
+
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.genre span {
+
+  padding-top: 10px;
+
+  padding-bottom: 10px;
+
+  padding-left: 10px;
+
+  padding-right: 10px;
+
+  border: 3px solid #00bfff;
+
+  border-radius: 20px;
+
+  color: #00bfff;
+
+  font-size: 33px;
+
+  white-space: nowrap;
+  
+  box-shadow:
+  0 0 10px rgba(0,191,255,0.6),
+  0 0 20px rgba(0,191,255,0.4);
+}
+
+.warning-text{
+  color: #ffd700;
+  font-weight: bold;
+  
+  display: flex;
+  justify-conten: center;
+  align-items: center;
+  
+  text-align: center;
+  width: 100%;
+  position: relative;
+  left: 1px;
+  
+  margin-top: 30px;
+  margin-bottom: -10px;
+  
+  font-size: 30px;
+
+  text-shadow:
+    0 0 3px rgba(255,215,0,0.7);
+
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+
+  from {
+
+    text-shadow:
+      0 0 3px rgba(255,215,0,0.5);
+  }
+
+  to {
+
+    text-shadow:
+      0 0 10px rgba(255,215,0,1),
+      0 0 10px rgba(255,215,0,0.7);
+  }
+}
+
+/* SINOPSIS */
+.sinopsis-box{
+
+  width: calc(100% - 20px);
+
+  margin-top: 20px;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  padding: 20px;
+
+  border-radius: 20px;
+
+  border: 2px solid #00bfff;
+
+  background: rgba(0,0,0,0.35);
+
+  backdrop-filter: blur(10px);
+
+  box-shadow:
+   0 0 10px rgba(0,191,255,0.6),
+   0 0 20px rgba(0,191,255,0.4);
+
+  color: white;
+
+  box-sizing: border-box;
+
+  overflow: hidden;
+}
+
+.sinopsis-box h3 {
+  text-align: center;
+  font-size: 45px;
+  margin: 6px;
+}
+
+.sinopsis-box p {
+  font-size: 30px;
+  text-align: center;
+
+  overflow-wrap: break-word;
+}
+
+.game-note {
+
+  color: #ffd700;
+
+  font-size: 35px;
+
+  font-weight: bold;
+
+  margin-bottom: 12px;
+
+  line-height: 1.5;
+
+  text-shadow:
+  0 0 3px #ffd700,
+  0 0 3px #ffae00;
+
+  animation: glowBlink 1.2s infinite;
+}
+
+@keyframes glowBlink {
+
+  0% {
+
+    text-shadow:
+    0 0 3px #ffd700,
+    0 0 3px #ffae00;
+  }
+
+  50% {
+
+    text-shadow:
+    0 0 1px #ffd700;
+  }
+
+  100% {
+
+    text-shadow:
+    0 0 3px #ffd700,
+    0 0 3px #ffae00;
+  }
+}
+
+/* ===== BACKGROUND KHUSUS HALAMAN DETAIL ===== */
+.detail-bg {
+
+  position: fixed;
+
+  inset: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  background-position: center center;
+
+  background-size: cover;
+
+  background-repeat: no-repeat;
+
+  z-index: -999;
+
+  filter:
+    blur(2px)
+    brightness(0.50);
+
+  transform: scale(1.0);
+
+  pointer-events: none;
+}
+
+/* ===== HEADER DETAIL ===== */
+
+.detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 25px 15px;
+
+  background: rgba(0,0,0,0.5);
+  border-bottom: 1px solid #00bfff;
+
+  position: sticky;
+  top: 0;
+
+  backdrop-filter: blur(5px);
+
+  z-index: 10;
+}
+
+/* LOGO */
+.detail-logo {
+  font-family: 'Bebas Neue', sans-serif;
+
+  font-size: 50px;
+
+  font-weight: 900;
+  position: relative;
+  left: 20px;
+  color: white;
+
+  text-shadow:
+    0 0 10px rgba(0,191,255,0.8),
+    0 0 20px rgba(0,191,255,0.5);
+}
+
+/* TOMBOL BERANDA */
+.home-btn {
+  color: white;
+  text-decoration: none;
+
+  border: 1px solid #00bfff;
+  border-radius: 10px;
+
+  padding: 7px 14px;
+
+  font-size: 50px;
+
+  background: #00bfff;
+
+  transition: 0.3s;
+}
+
+/* efek pencet */
+.home-btn:hover {
+  background: #00bfff;
+  color: black;
+}
+
+/* PREVIEW AREA */
+.preview-section {
+
+  margin-top: -410px;
+
+  position: relative;
+  z-index: 2;
+}
+
+/* TITLE */
+.preview-title {
+
+  color: white;
+
+  font-size: 45px;
+  text-align: center;
+  
+  margin: 30px;
+  margin-bottom: 20px;
+  margin-top: 400px;
+  
+  text-shadow:
+    0 0 1px rgba(0,191,255,0.6);
+}
+
+/* SLIDER */
+.preview-slider{
+  display: flex;
+  gap: 10px;
+
+  overflow-x: auto;
+
+  padding-left: 10px;
+  padding-right: 10px;
+
+  box-sizing: border-box;
+}
+
+/* HIDE SCROLLBAR */
+.preview-slider::-webkit-scrollbar {
+  display: none;
+}
+
+/* FOTO */
+.preview-slider img {
+  width: 500px;
+  max-width: 350px;
+  
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  
+  max-width: 90vw;
+
+  display: block;
+  border-radius: 20px;
+
+  flex-shrink: 0;
+
+  border: 3px solid #00bfff;
+
+  box-shadow:
+   0 0 10px rgba(0,191,255,0.6),
+   0 0 20px rgba(0,191,255,0.4);
+
+  padding: 3px;
+}
+
+/* OVERLAY GELAP */
+.overlay {
+
+  position: fixed;
+
+  inset: 0;
+
+  background:
+  rgba(0,0,0,0.6);
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  transition: 0.3s;
+
+  z-index: 998;
+}
+
+/* aktif */
+.overlay.active {
+
+  opacity: 1;
+
+  visibility: visible;
+}
+
+/* SIDEBAR */
+.sidebar {
+  position: fixed;
+  
+  top: 0;
+  left: -270px;
+
+  width: 250px;
+
+  height: 100vh;
+
+  background: #050505;
+
+  border-right:
+  2px solid #00bfff;
+
+  z-index: 999999;
+
+  transition: 0.5s;
+
+  padding-top: 20px;
+
+  overflow-y: auto;
+}
+
+.sidebar a:hover {
+
+  background:
+  rgba(0,191,255,0.15);
+
+  box-shadow:
+    0 0 12px rgba(0,191,255,0.6);
+
+  transform: translateX(5px);
+}
+
+.side-link {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  width: 80%;
+
+  margin: 14px auto;
+
+  padding: 5px 5px;
+
+  color: white !important;
+
+  text-decoration: none;
+
+  border: 2px solid #00bfff;
+
+  border-radius: 14px;
+
+  background: rgba(255,255,255,0.03);
+
+  box-shadow:
+  0 0 10px rgba(0,191,255,0.25);
+
+  font-size: 16px;
+}
+
+.side-link img {
+
+  width: 20px;
+
+  height: 20px;
+
+  object-fit: contain;
+  
+  padding: 4px;
+
+  border: 1.5px solid #38bfff;
+
+  border-radius: 8px;
+
+  background: white;
+
+  box-shadow:
+  0 0 12px rgba(0,191,255,0.3);
+}
+
+/* aktif */
+.sidebar.active {
+
+  left: 0;
+}
+
+/* tombol X */
+.close-btn {
+
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  margin-left: auto;
+  margin-right: 15px;
+
+  margin-bottom: 20px;
+
+  color: #00bfff;
+
+  font-size: 24px;
+  font-weight: bold;
+
+  border: 2px solid #00bfff;
+
+  border-radius: 12px;
+
+  background: rgba(0,0,0,0.8);
+
+  box-shadow:
+    0 0 1px rgba(0,191,255,0.5);
+
+  cursor: pointer;
+
+  transition: 0.5s;
+}
+
+.close-btn:hover {
+
+  background: #00bfff;
+
+  color: black;
+
+  box-shadow:
+    0 0 15px rgba(0,191,255,0.9);
+}

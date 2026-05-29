@@ -1,0 +1,144 @@
+body{
+  margin:0;
+  padding:20px;
+
+  background:black;
+  color:white;
+
+  font-family:Arial;
+}
+
+/* BACKGROUND FIX (TIDAK GESER) */
+.bg-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background: url("img/bg.jpg");
+  background-size: 110%;
+  background-position: center 50%;
+  background-repeat: no-repeat;
+
+  z-index: -1;
+}
+
+/* overlay gelap */
+.bg-fixed::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.65); /* lebih gelap */
+}
+
+/* semua konten di atas overlay */
+.header,
+.top-menu,
+.content,
+.bottom-menu {
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== HEADER ===== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 15px;
+
+  background: rgba(0,0,0,0.7); /* semi transparan */
+  border-bottom: 1px solid var(--sky);
+
+  position: sticky;
+  top: 0;
+}
+
+/* HEADER */
+.search-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+/* BACK */
+.back-btn{
+  color:#00bfff;
+  text-decoration:none;
+
+  font-size:25px;
+
+  border:1px solid #00bfff;
+
+  padding:5px 12px;
+
+  border-radius:10px;
+}
+
+/* TITLE */
+.search-title{
+  color:#00bfff;
+
+  font-size:25px;
+  font-weight:bold;
+  position: relative;
+  left: -40px;
+}
+
+/* BOX */
+.search-box{
+  margin-top:30px;
+}
+
+/* INPUT */
+.search-box input{
+  width:100%;
+  padding:15px;
+
+  border: 1px solid #00bfff;
+  border-radius:15px;
+
+  background:#111;
+
+  color:white;
+  font-size:16px;
+  box-sizing:border-box;
+  
+  outline: none;
+}
+
+/* RESULT */
+.search-result{
+  margin-top:25px;
+
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+
+  gap:15px;
+}
+
+/* CARD */
+.search-result .game-card{
+
+  text-decoration:none;
+  color:white;
+
+  background:#111;
+
+  padding:8px;
+
+  border-radius:12px;
+}
+
+/* IMG */
+.search-result .game-card img{
+
+  width:100%;
+  height:150px;
+
+  object-fit:cover;
+
+  border-radius:10px;
+}
