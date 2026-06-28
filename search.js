@@ -4,47 +4,62 @@ document.getElementById("searchInput");
 const resultBox =
 document.getElementById("searchResult");
 
-/* AMBIL INDEX.HTML */
-fetch("index.html")
+/* AMBIL DUA HALAMAN */
+Promise.all([
+fetch("index.html").then(res => res.text()),
+fetch("rpg.html").then(res => res.text())
+])
 
-.then(res => res.text())
+.then(([renpyData, rpgData]) => {
 
-.then(data => {
+const parser = new DOMParser();
 
-  /* UBAH HTML JADI DOCUMENT */
-  const parser =
-  new DOMParser();
+const renpyDoc =
+parser.parseFromString(
+renpyData,
+"text/html"
+);
 
-  const doc =
-  parser.parseFromString(data, "text/html");
+const rpgDoc =
+parser.parseFromString(
+rpgData,
+"text/html"
+);
 
-  /* AMBIL SEMUA GAME */
-  const games =
-  doc.querySelectorAll(".game-card");
+/* GABUNG SEMUA GAME */
+const games = [
+...renpyDoc.querySelectorAll(".game-card"),
+...rpgDoc.querySelectorAll(".game-card")
+];
 
-  /* SEARCH */
-  searchInput.addEventListener("keyup", () => {
+searchInput.addEventListener(
+"keyup",
+() => {
 
-    let keyword =
-    searchInput.value.toLowerCase();
+  let keyword =
+  searchInput.value
+  .toLowerCase();
 
-    resultBox.innerHTML = "";
+  resultBox.innerHTML = "";
 
-    games.forEach(game => {
+  games.forEach(game => {
 
-      let title =
-      game.querySelector(".game-title")
-      .innerText
-      .toLowerCase();
+    let title =
+    game.querySelector(".game-title")
+    .innerText
+    .toLowerCase();
 
-      if(title.includes(keyword)) {
+    if(title.includes(keyword)) {
 
-        resultBox.innerHTML += game.outerHTML;
+      resultBox.innerHTML +=
+      game.outerHTML;
 
-      }
-
-    });
+    }
 
   });
+
+}
+
+);
 
 });
